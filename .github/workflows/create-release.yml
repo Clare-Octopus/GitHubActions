@@ -1,8 +1,5 @@
 env:
 
-        on:
-  workflow_dispatch:
-
 steps:
   # ...
   - name: Deploy a release in Octopus Deploy 🐙
