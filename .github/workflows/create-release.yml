@@ -4,9 +4,7 @@ name: Octopus Create Release
   push: {}
 jobs:
   build:
-    runs-on: windows
-
-env:
+    runs-on: windows-latest
 
 steps:
   # ...
