@@ -3,9 +3,7 @@ name: Octopus Create Release
   workflow_dispatch: {}
   push: {}
 jobs:
-  build:
     runs-on: windows-latest
-
 steps:
   # ...
   - name: Deploy a release in Octopus Deploy 🐙
