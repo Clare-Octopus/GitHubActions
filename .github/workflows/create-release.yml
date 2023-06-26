@@ -1,3 +1,8 @@
+name: GitHub Actions Octopus Create Release
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+
 env:
 
 steps:
