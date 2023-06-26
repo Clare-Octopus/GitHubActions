@@ -1,27 +1,12 @@
-name: Octopus Create Release
-'on':
-  workflow_dispatch: {}
-  push: {}
-jobs:
-CreateOctopusRelease:
-    runs-on: windows-latest
+env:
+  OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
+  OCTOPUS_URL: ${{ secrets.OCTOPUS_URL }}
+  OCTOPUS_SPACE: 'Clare'
 steps:
   # ...
-  - name: Deploy a release in Octopus Deploy 🐙
+  - name: Create a release in Octopus Deploy 🐙
     uses: OctopusDeploy/create-release-action@v3
-    env:
-      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
-      OCTOPUS_URL: ${{ secrets.SERVER }}
-      OCTOPUS_SPACE: 'Clare'
     with:
       project: 'GitHub Actions'
-      release_number: '1.0.0'
-      environments: |
-        Dev
-        Development
-        Test
-      variables: |
-        Foo: Bar
-        Fizz: Buzz
         
 
