@@ -17,5 +17,5 @@ jobs:
         with:
            project: 'GitHub Actions'
            release_number: '0.0.1'
-           environment: 'Test'    
+           environments: 'Test'    
 
