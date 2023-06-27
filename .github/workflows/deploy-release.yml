@@ -7,20 +7,21 @@ on:
 jobs:
   GitHub-Actions-Deploy-Release:
     name: GitHub-Actions-Deploy-Release
-    runs-on: ubuntu-latest
-env:
-  OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
-  OCTOPUS_URL: ${{ secrets.OCTOPUS_URL }}
-  OCTOPUS_SPACE: 'Clare'
+    runs-on: windows-latest
 steps:
   # ...
   - name: Deploy a release in Octopus Deploy 🐙
     uses: OctopusDeploy/deploy-release-action@v3
+    env:
+      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
+      OCTOPUS_URL: ${{ secrets.SERVER }}
+      OCTOPUS_SPACE: 'Clare'
     with:
       project: 'GitHub Actions'
       release_number: '0.0.1'
       environments: |
         Test
+
 
         
 
