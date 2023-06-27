@@ -16,10 +16,6 @@ steps:
   # ...
   - name: Deploy a release in Octopus Deploy 🐙
     uses: OctopusDeploy/deploy-release-action@v3
-    env:
-      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
-      OCTOPUS_URL: ${{ secrets.SERVER }}
-      OCTOPUS_SPACE: 'Clare'
     with:
       project: 'GitHub Actions'
       release_number: '0.0.1'
