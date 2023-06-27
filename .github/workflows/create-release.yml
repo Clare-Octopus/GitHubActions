@@ -1,3 +1,6 @@
+name: GitHub Actions Create Release
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
 env:
   OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
   OCTOPUS_URL: ${{ secrets.OCTOPUS_URL }}
