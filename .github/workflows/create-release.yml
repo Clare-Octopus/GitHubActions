@@ -5,7 +5,7 @@ on:
     branches:
       - main
 jobs:
-  GitHub-Actions-Create-Release:
+  GitHub-Actions-Deploy-Release:
     name: GitHub-Actions-Create-Release
     runs-on: ubuntu-latest
 env:
