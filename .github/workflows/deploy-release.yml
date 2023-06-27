@@ -9,7 +9,6 @@ jobs:
     name: GitHub-Actions-Deploy-Release
     runs-on: windows-latest
 steps:
-  # ...
   - name: Deploy a release in Octopus Deploy 🐙
     uses: OctopusDeploy/deploy-release-action@v3
     env:
