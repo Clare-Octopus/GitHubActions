@@ -1,0 +1,20 @@
+name: GitHub Actions Create and Deploy Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deployment:
+    runs-on: windows-latest
+    env:
+     OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_API_KEY  }}
+     OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
+     OCTOPUS_SPACE: 'Clare'
+    steps:
+      - name: Create a release in Octopus Deploy 🐙
+        uses: OctopusDeploy/create-release-action@v3
+        with:
+          project: 'GitHub Actions'
+          release_number: '0.0.1'
+          deploy_to: "Development"
+       
