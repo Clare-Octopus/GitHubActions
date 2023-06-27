@@ -6,7 +6,6 @@ on:
       - main
 jobs:
   GitHub-Actions-Deploy-Release:
-    name: GitHub-Actions-Deploy-Release
     runs-on: windows-latest
 steps:
   - name: Deploy a release in Octopus Deploy 🐙
