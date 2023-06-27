@@ -7,9 +7,6 @@ on:
 jobs:
   GitHub-Actions-Deploy-Release:
     runs-on: windows-latest
-
-      env:
-
 steps:
   # ...
   - name: Deploy a release in Octopus Deploy 🐙
