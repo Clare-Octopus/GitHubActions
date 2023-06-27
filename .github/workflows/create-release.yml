@@ -15,7 +15,7 @@ env:
 steps:
   # ...
   - name: Create a release in Octopus Deploy 🐙
-    uses: OctopusDeploy/create-release-action@v3
+    uses: OctopusDeploy/create-release-action@v3.0.5
     with:
       project: 'GitHub Actions'
         
