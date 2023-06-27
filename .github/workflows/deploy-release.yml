@@ -5,18 +5,18 @@ on:
     branches:
       - main
 jobs:
-  GitHub-Actions-Deploy-Release:
+  deployment:
     runs-on: windows-latest
-steps:
-  # ...
-  - name: Deploy a release in Octopus Deploy 🐙
-    uses: OctopusDeploy/deploy-release-action@v3
-    env:
-      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
-      OCTOPUS_URL: ${{ secrets.SERVER }}
-      OCTOPUS_SPACE: 'Clare'
-    with:
-      project: 'GitHub Actions'
-      release_number: '0.0.1'
-      environment: 'Test'    
+    steps:
+      - name: deploy
+      - name: Deploy a release in Octopus Deploy 🐙
+        uses: OctopusDeploy/deploy-release-action@v3
+          env:
+              OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
+              OCTOPUS_URL: ${{ secrets.SERVER }}
+              OCTOPUS_SPACE: 'Clare'
+         with:
+             project: 'GitHub Actions'
+             release_number: '0.0.1'
+             environment: 'Test'    
 
