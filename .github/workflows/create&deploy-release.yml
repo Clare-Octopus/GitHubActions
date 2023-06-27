@@ -15,6 +15,13 @@ jobs:
         uses: OctopusDeploy/create-release-action@v3
         with:
           project: 'GitHub Actions'
-          release_number: '0.0.2'
-          deploy_to: "Development"
+          release_number: '0.0.3'
+      - name: Deploy a release in Octopus Deploy 🐙
+        uses: OctopusDeploy/deploy-release-action@v3
+        with:
+         project: 'GitHub Actions'
+         release_number: '0.0.3'
+         environments: |
+           Development
+     
        
