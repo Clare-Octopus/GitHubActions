@@ -1,21 +1,2 @@
-name: GitHub Actions Deploy Release
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on:
-  push:
-    branches:
-      - main
-jobs:
-  deployment:
-    runs-on: windows-latest
-    steps:
-      - name: Deploy a release in Octopus Deploy 🐙
-        uses: OctopusDeploy/deploy-release-action@v3
-        env:
-          OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_API_KEY  }}
-          OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
-          OCTOPUS_SPACE: 'Clare'
-        with:
-           project: 'GitHub Actions'
-           release_number: '0.0.1'
-           environments: 'Development'    
+
 
