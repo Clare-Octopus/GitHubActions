@@ -16,7 +16,7 @@ jobs:
         with:
           project: 'GitHub Actions'
           channel: 'release'
-          release_number: '0.0.14'
-          packages: 'package_version:${{ env.PACKAGE_VERSION }}'
+          release_number: '0.0.15'
+          package_version: '${{ env.PACKAGE_VERSION }}'
 
        
