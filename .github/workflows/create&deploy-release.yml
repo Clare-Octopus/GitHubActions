@@ -16,7 +16,7 @@ jobs:
         with:
           project: 'GitHub Actions'
           channel: 'release'
-          release_number: '0.0.7'
+          release_number: '0.0.8'
           packages: '1:4.63.12290-beta.7595'
 
        
