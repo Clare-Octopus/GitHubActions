@@ -15,7 +15,8 @@ jobs:
         uses: OctopusDeploy/create-release-action@v3
         with:
           project: 'GitHub Actions'
-          release_number: '0.0.4'
+          channel: 'release'
+          release_number: '0.0.5'
           packages: 'RandomQuotesTCNugetCloud:1.0.33'
 
        
