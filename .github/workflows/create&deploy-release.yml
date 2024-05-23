@@ -15,13 +15,7 @@ jobs:
         uses: OctopusDeploy/create-release-action@v3
         with:
           project: 'GitHub Actions'
-          release_number: '0.0.4'
-      - name: Deploy a release in Octopus Deploy 🐙
-        uses: OctopusDeploy/deploy-release-action@v3
-        with:
-         project: 'GitHub Actions'
-         release_number: '0.0.4'
-         environments: |
-           Development
-     
+          release_number: '0.0.1'
+          packages: 'RandomQuotesTCNugetCloud:1.0.33'
+
        
