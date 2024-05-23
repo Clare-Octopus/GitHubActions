@@ -16,7 +16,7 @@ jobs:
         with:
           project: 'GitHub Actions'
           channel: 'release'
-          release_number: '0.0.12'
-          packages: 'Deploy a Package:sharedflow:${{ env.PACKAGE_VERSION }}'
+          release_number: '0.0.13'
+          packages: 'Deploy a Package:${{ env.PACKAGE_VERSION }}'
 
        
