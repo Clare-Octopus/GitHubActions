@@ -18,6 +18,6 @@ jobs:
             channel: 'release'
             release_number: '0.0.33'
             packages: |
-              'sharedflow:${{ env.PACKAGE_VERSION }}'
+              'sf-test-sharedflow:${{ env.PACKAGE_VERSION }}'
 
        
