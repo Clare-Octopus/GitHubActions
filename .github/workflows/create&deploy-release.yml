@@ -16,7 +16,7 @@ jobs:
         with:
             project: 'GitHub Actions'
             channel: 'release'
-            release_number: '0.0.32'
+            release_number: '0.0.33'
             packages: |
               'sharedflow:${{ env.PACKAGE_VERSION }}'
 
