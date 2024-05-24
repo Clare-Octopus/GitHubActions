@@ -16,8 +16,8 @@ jobs:
         with:
             project: 'GitHub Actions'
             channel: 'release'
-            release_number: '0.0.20'
+            release_number: '0.0.21'
             packages: |
-              'sf-test-sharedflow:0.147.0'
+              'sharedflow:${{ env.PACKAGE_VERSION }}'
 
        
