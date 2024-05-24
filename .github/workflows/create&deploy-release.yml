@@ -17,6 +17,6 @@ jobs:
           project: 'GitHub Actions'
           channel: 'release'
           release_number: '0.0.16'
-          package_version: '${{ env.PACKAGE_VERSION }}'
+          packages: '${{steps.env_name.outputs.apigee-name}}-sharedflow:${{ env.PACKAGE_VERSION }}'
 
        
