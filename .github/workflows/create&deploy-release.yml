@@ -16,8 +16,8 @@ jobs:
         with:
             project: 'GitHub Actions'
             channel: 'release'
-            release_number: '0.0.19'
+            release_number: '0.0.20'
             packages: |
-              'eksctl:0.147.0'
+              'sf-test-sharedflow:0.147.0'
 
        
