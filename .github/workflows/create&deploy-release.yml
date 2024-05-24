@@ -16,8 +16,8 @@ jobs:
         with:
             project: 'GitHub Actions'
             channel: 'release'
-            release_number: '0.0.28'
+            release_number: '0.0.29'
             packages: |
-              'Run gcloud in a Script:${{ env.PACKAGE_VERSION }}'
+              'Run gcloud in a Script:sf-test-sharedflowref:${{ env.PACKAGE_VERSION }}'
 
        
