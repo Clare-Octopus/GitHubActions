@@ -14,9 +14,10 @@ jobs:
       - name: Create a release in Octopus Deploy 🐙
         uses: OctopusDeploy/create-release-action@v3
         with:
-          project: 'GitHub Actions'
-          channel: 'release'
-          release_number: '0.0.16'
-          packages: '${{steps.env_name.outputs.apigee-name}}-sharedflow:${{ env.PACKAGE_VERSION }}'
+            project: 'GitHub Actions'
+            channel: 'release'
+            release_number: '0.0.17'
+            packages: |
+              'sharedflow:${{ env.PACKAGE_VERSION }}'
 
        
