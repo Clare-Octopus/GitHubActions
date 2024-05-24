@@ -16,7 +16,7 @@ jobs:
         with:
             project: 'GitHub Actions'
             channel: 'release'
-            release_number: '0.0.27'
+            release_number: '0.0.28'
             packages: |
               'Run gcloud in a Script:${{ env.PACKAGE_VERSION }}'
 
