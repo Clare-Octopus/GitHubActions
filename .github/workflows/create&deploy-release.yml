@@ -16,8 +16,8 @@ jobs:
         with:
             project: 'GitHub Actions'
             channel: 'release'
-            release_number: '0.0.17'
+            release_number: '0.0.18'
             packages: |
-              'sharedflow:${{ env.PACKAGE_VERSION }}'
+              'sf-test-sharedflowref:0.1.0-gpe-315-apigee-sharedflow-support.1.103-39cb9e4'
 
        
