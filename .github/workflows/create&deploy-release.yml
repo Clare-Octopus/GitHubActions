@@ -11,15 +11,9 @@ jobs:
      OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
      OCTOPUS_SPACE: 'Clare'
     steps:
-      - name: Create a release in Octopus Deploy 🐙
+      - name: Create Release in Octopus Deploy
         uses: OctopusDeploy/create-release-action@v3
         with:
-            project: 'GitHub Actions'
-            channel: 'release'
-            release_number: '0.0.45'
-        env: 
-            PACKAGE_VERSION: 0.1.0-gpe-315-apigee-sharedflow-support.1.103-39cb9e4
-            packages: |
-              Deploy a Package:sf-test-sharedflowref:${{ env.PACKAGE_VERSION }}'
-
-
+          project: 'GitHub Actions'
+          packages: |
+            Deploy a Package:sf-test-sharedflowref:${{ env.PACKAGE_VERSION }}'
