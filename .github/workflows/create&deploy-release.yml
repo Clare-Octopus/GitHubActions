@@ -10,6 +10,7 @@ jobs:
      OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_API_KEY  }}
      OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
      OCTOPUS_SPACE: 'Clare'
+     PACKAGE_VERSION: 0.1.0-gpe-315-apigee-sharedflow-support.1.103-39cb9e4
     steps:
       - name: Create Release in Octopus Deploy
         uses: OctopusDeploy/create-release-action@v3
