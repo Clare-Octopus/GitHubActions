@@ -18,4 +18,4 @@ jobs:
           project: 'GitHub Actions'
           channel: 'release'
           packages: |
-            sf-test-sharedflow:${{ env.PACKAGE_VERSION }}
+            Run a Script:sf-test-sharedflowref:${{ env.PACKAGE_VERSION }}
