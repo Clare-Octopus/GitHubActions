@@ -18,4 +18,4 @@ jobs:
             channel: 'release'
             release_number: '0.0.44'
             packages: |
-              sf-test-sharedflow:${{ env.PACKAGE_VERSION }}
+              Deploy a Package:sf-test-sharedflow:${{ env.PACKAGE_VERSION }} 
