@@ -17,4 +17,4 @@ jobs:
           project: 'GitHub Actions'
           channel: 'release'
           packages: |
-            Run a Script:sf-test-sharedflowref:0.1.0-gpe-315-apigee-sharedflow-support.1.103-39cb9e4
+            Run a Script:sf-test-sharedflowref:${{ env.PACKAGE_VERSION }}
