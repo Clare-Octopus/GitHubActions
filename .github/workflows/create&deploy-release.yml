@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   deployment:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     env:
      OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_API_KEY  }}
      OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
