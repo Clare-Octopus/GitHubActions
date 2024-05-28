@@ -15,5 +15,6 @@ jobs:
         uses: OctopusDeploy/create-release-action@v3
         with:
           project: 'GitHub Actions'
+          channel: 'release'
           packages: |
             Deploy a Package:sf-test-sharedflowref:${{ env.PACKAGE_VERSION }}'
