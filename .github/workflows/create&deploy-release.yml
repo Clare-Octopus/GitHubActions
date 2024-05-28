@@ -11,7 +11,7 @@ jobs:
      OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
      OCTOPUS_SPACE: 'Clare'
     steps:
-      - name: Create a release in Octopus Deploy
+      - name: Create a release in Octopus Deploy 🐙
         uses: OctopusDeploy/create-release-action@v3
         with:
             project: 'GitHub Actions'
