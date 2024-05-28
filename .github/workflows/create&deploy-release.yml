@@ -16,7 +16,7 @@ jobs:
         with:
             project: 'GitHub Actions'
             channel: 'release'
-            release_number: '0.0.44'
+            release_number: '0.0.45'
             env: PACKAGE_VERSION: 0.1.0-gpe-315-apigee-sharedflow-support.1.103-39cb9e4
             packages: |
               Deploy a Package:sf-test-sharedflow:0.1.0-gpe-315-apigee-sharedflow-support.1.103-39cb9e4
