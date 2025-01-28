@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       OCTOPUS_SPACE: 'Clare'
-      server: ${{ secrets.OCTOPUSSERVERURL }}
-      api_key: ${{ secrets.OCTOPUS_API_KEY }}
+      server: https://octopus-operations.octopus.app/
+      api_key: API-YYKEPHMQMTXMJ2VNJYEU4CBXVBJXHCMS
     steps:
     # Action to Deploy a Release
     - name: Deploy a release in Octopus Deploy 🐙
