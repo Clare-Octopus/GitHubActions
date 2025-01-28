@@ -4,25 +4,19 @@ on:
     branches:
       - main
 jobs:
-  deployment:
+  octopus-deployment:
     runs-on: ubuntu-latest
     env:
-     OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_API_KEY  }}
-     OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
-     OCTOPUS_SPACE: 'Clare'
-     PACKAGE_VERSION: AzureWebApp.1.0.0
-    steps:
-  - name: Deploy a release in Octopus Deploy 🐙
-    uses: OctopusDeploy/deploy-release-tenanted-action@v3
-    env:
-      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
-      OCTOPUS_URL: ${{ secrets.SERVER }}
       OCTOPUS_SPACE: 'Clare'
-    with:
-      project: 'Package'
-      release_version: '0.0.1'
-      environment: 'Test'
-      tenants: |
-        'A'
-        'B'
-        'C'
+    steps:
+    # Action to Deploy a Release
+    - name: Deploy a release in Octopus Deploy 🐙
+      uses: OctopusDeploy/deploy-release-tenanted-action@v3
+      with:
+        project: 'Package'
+        release_number: '0.0.1'
+        environment: 'Test'
+        tenants: |
+          'A'
+          'B'
+          'C'
