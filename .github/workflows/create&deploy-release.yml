@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       OCTOPUS_SPACE: 'Clare'
+      server: ${{ secrets.OCTOPUS_URL }}
+      api_key: ${{ secrets.API_KEY }}
     steps:
     # Action to Deploy a Release
     - name: Deploy a release in Octopus Deploy 🐙
       uses: OctopusDeploy/deploy-release-tenanted-action@v3
       with:
-        server: ${{ secrets.OCTOPUS_URL }}
-        api_key: ${{ secrets.API_KEY }}
         project: 'Package'
         release_number: '0.0.1'
         environment: 'Test'
