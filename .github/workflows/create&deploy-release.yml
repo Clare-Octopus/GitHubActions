@@ -13,7 +13,7 @@ jobs:
     - name: Deploy a release in Octopus Deploy 🐙
       uses: OctopusDeploy/deploy-release-tenanted-action@v3
       with:
-        server: ${{ secrets.OCTOPUS_OCTOPUS_URL }}  
+        server: ${{ secrets.OCTOPUS_URL }}  
         api_key: ${{ secrets.OCTOPUS_API_KEY }}
         project: 'Package'
         release_number: '0.0.1'
