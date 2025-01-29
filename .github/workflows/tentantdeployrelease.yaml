@@ -1,0 +1,23 @@
+name: GitHub Actions Create and Deploy Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  octopus-deployment:
+    runs-on: ubuntu-latest
+    env:
+      OCTOPUS_SPACE: 'Clare'
+    steps:
+    # Action to Deploy a Release
+    - name: Deploy a release in Octopus Deploy 🐙
+      uses: OctopusDeploy/deploy-release-tenanted-action@v3
+      with:
+        server: ${{ secrets.OCTOPUS_URL }}  
+        api_key: ${{ secrets.OCTOPUS_API_KEY }}
+        project: 'Package'
+        release_number: '0.0.1'
+        environment: 'Test'
+        tenants: |
+           Test Tenant 1
+           B
