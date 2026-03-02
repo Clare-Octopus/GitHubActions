@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       OCTOPUS_SPACE: 'Clare'
-      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
+      OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_API_KEY }}
       OCTOPUS_URL: ${{ secrets.OCTOPUS_URL }}
 
     steps:
