@@ -5,22 +5,17 @@ on:
   push:
     branches: 
       - main
-
 jobs:
   octopus-deployment:
     runs-on: ubuntu-latest
     env:
+      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
+      OCTOPUS_URL: ${{ secrets.OCTOPUS_URL }}
       OCTOPUS_SPACE: 'Clare'
-env:
-  OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
-  OCTOPUS_URL: ${{ secrets.OCTOPUS_URL }}
-  OCTOPUS_SPACE: 'Clare'
-steps:
-  # ...
-  - name: Create a release in Octopus Deploy 🐙
-    id: create_a_release_in_octopus_deploy  
-    uses: OctopusDeploy/create-release-action@v4
-    with:
+    steps:
+    - name: Create a release in Octopus Deploy 🐙
+     uses: OctopusDeploy/create-release-action@v4
+     with:
       project: 'PlatformHubPackageDeploy'
       packages: |
         Run a Process Template:JhubSite:2020.1.1.0
