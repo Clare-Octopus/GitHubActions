@@ -1,5 +1,5 @@
 # .github/workflows/hello-octopus-deploy.yml
-name: Hello Octopus Deploy
+name: DeployPackageProcessTemplate
 
 on:
   push:
