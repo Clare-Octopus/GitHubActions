@@ -18,7 +18,8 @@ jobs:
       uses: OctopusDeploy/create-release-action@v3
       with:
         project: 'PlatformHubPackageDeploy'
-        release_number: '2.0.5'
+        release_number: '2.0.9'
+        channel: 'Ephemeral Environments'
         packages: |
          Run a Process Template-Deploy a Package:2.0.0
          Deploy a Package:2.0.0
