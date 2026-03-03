@@ -18,10 +18,10 @@ jobs:
       uses: OctopusDeploy/create-release-action@v3
       with:
         project: 'PlatformHubPackageDeploy'
-        release_number: '2.1.6'
+        release_number: '2.1.7'
         channel: 'Ephemeral Environments'
-        git_ref: ${{ github.ref }}
-        git_commit: ${{ github.sha }}
+        git_ref: 'main'
+        git_commit: '6663fda'
         packages: |
          Run a Process Template-Deploy a Package:2.0.0
          Deploy a Package:2.0.0
