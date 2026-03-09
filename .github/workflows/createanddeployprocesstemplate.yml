@@ -18,7 +18,7 @@ jobs:
       uses: OctopusDeploy/create-release-action@v3
       with:
         project: 'PlatformHubPackageDeploy'
-        release_number: '2.2.3'
+        release_number: '2.2.4'
         channel: 'Ephemeral Environments'
         git_ref: 'main'
         git_commit: '6663fda'
