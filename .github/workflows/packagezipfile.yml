@@ -22,13 +22,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build application
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Publish
         run: |
-          # Your build commands here
-          # Example:
-          # dotnet publish ./src/MyApplication \
-          #   --configuration Release \
-          #   --output ./publish
+          dotnet publish ./src/MyApplication/MyApplication.csproj \
+            --configuration Release \
+            --output ./publish \
+            --no-restore
 
       - name: Login to Octopus
         uses: OctopusDeploy/login@v2
@@ -46,7 +53,7 @@ jobs:
           files: |
             **/*.*
 
-      - name: Push package to Octopus
+      - name: Push package
         uses: OctopusDeploy/push-package-action@v3
         with:
           packages: |
