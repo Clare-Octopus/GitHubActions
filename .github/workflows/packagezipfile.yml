@@ -24,6 +24,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+
+      - name: Get Octopus OIDC token
+        id: oidc
+        shell: bash
+        env:
+          AUDIENCE: 5e39c960-9e2c-44c5-bd84-a9651dc47cfc
+        run: |
+          TOKEN=$(curl -sSf \
+            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${AUDIENCE}" \
+            | jq -r '.value')
+
+          echo "::add-mask::$TOKEN"
+
+          PAYLOAD=$(echo "$TOKEN" | cut -d '.' -f2 | base64 -d 2>/dev/null)
+
+          echo "OIDC token claims:"
+          echo "$PAYLOAD" | jq '{
+            iss,
+            sub,
+            aud,
+            repository,
+            repository_owner,
+            ref,
+            event_name
+          }'
+
       # Authenticate to Octopus using GitHub's OIDC token.
       # No Octopus API key is stored in GitHub.
       - name: Login to Octopus
