@@ -29,7 +29,6 @@ steps:
       files: |
         **/*.*
 
-steps:
   - uses: actions/checkout@v3
 
   - name: Push a package to Octopus Deploy 🐙
