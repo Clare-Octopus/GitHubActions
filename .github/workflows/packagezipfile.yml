@@ -1,4 +1,4 @@
-name: Build and Push to Octopus
+name: Package and Push to Octopus
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
 
 env:
   OCTOPUS_SERVER: https://octopus-operations.octopus.app/
-  PACKAGE_ID: MyApplication
+  PACKAGE_ID: TestPackage
   PACKAGE_VERSION: 1.0.${{ github.run_number }}
 
 jobs:
@@ -19,23 +19,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.x'
-
-      - name: Restore
-        run: dotnet restore
-
-      - name: Publish
-        run: |
-          dotnet publish ./src/MyApplication/MyApplication.csproj \
-            --configuration Release \
-            --output ./publish \
-            --no-restore
 
       - name: Login to Octopus
         uses: OctopusDeploy/login@v2
@@ -48,13 +33,13 @@ jobs:
         with:
           package_id: ${{ env.PACKAGE_ID }}
           version: ${{ env.PACKAGE_VERSION }}
-          output_folder: ./packages
-          base_path: ./publish
+          output_folder: ./output
+          base_path: ./packages
           files: |
-            **/*.*
+            test.txt
 
-      - name: Push package
+      - name: Push package to Octopus
         uses: OctopusDeploy/push-package-action@v3
         with:
           packages: |
-            ./packages/*.zip
+            ./output/*.zip
