@@ -1,55 +1,23 @@
-name: Build and Push Package to Octopus
+name: Test Octopus OIDC
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 permissions:
-  contents: read
   id-token: write
-
-env:
-  OCTOPUS_SERVER: https://octopus-operations.octopus.app
-  OCTOPUS_SPACE: Clare
-
-  PACKAGE_ID: MyApplication
-  PACKAGE_VERSION: 1.0.${{ github.run_number }}
+  contents: read
 
 jobs:
-  package:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Login to Octopus
+        uses: OctopusDeploy/login@v2
+        with:
+          server: ${{ secrets.OCTOPUSCLOUDURL }}
+          service_account_id: 5e39c960-9e2c-44c5-bd84-a9651dc47cfc
 
-
-      - name: Get GitHub OIDC token
-        id: oidc
-        shell: bash
-        env:
-          AUDIENCE: 5e39c960-9e2c-44c5-bd84-a9651dc47cfc
+      - name: Test login
         run: |
-          TOKEN=$(curl -sSf \
-              -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-              "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${AUDIENCE}" \
-               | jq -r '.value')
-
-             echo "::add-mask::$TOKEN"
-             echo "token=$TOKEN" >> "$GITHUB_OUTPUT"
-
-
-
-             - name: Install Octopus CLI
-               uses: OctopusDeploy/install-octopus-cli-action@v4
-
-              - name: Test Octopus OIDC
-                shell: bash
-                env:
-                  TOKEN: ${{ steps.oidc.outputs.token }}
-                run: |
-                  octopus login \
-                     --server "${OCTOPUS_SERVER}" \
-                     --service-account-id "5e39c960-9e2c-44c5-bd84-a9651dc47cfc" \
-                     --id-token "$TOKEN"
+          echo "Octopus login succeeded"
