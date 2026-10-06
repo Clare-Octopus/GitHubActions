@@ -10,7 +10,7 @@ permissions:
   id-token: write
 
 env:
-  OCTOPUS_SERVER: https://octopus-operations.octopus.app/
+  OCTOPUS_SERVER: https://octopus-operations.octopus.app
   OCTOPUS_SPACE: Clare
   PACKAGE_ID: TestPackage
   PACKAGE_VERSION: 1.0.${{ github.run_number }}
