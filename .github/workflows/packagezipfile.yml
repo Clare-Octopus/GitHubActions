@@ -27,10 +27,10 @@ jobs:
       # Authenticate to Octopus using GitHub's OIDC token.
       # No Octopus API key is stored in GitHub.
       - name: Login to Octopus
-        uses: OctopusDeploy/login@v1
+        uses: OctopusDeploy/login@34b6dcc1e86fa373c14e6a28c5507d221e4de629 # v1.0.2
         with:
-          server: ${{ env.OCTOPUS_SERVER }}
-          service_account_id:: 5e39c960-9e2c-44c5-bd84-a9651dc47cfc
+       server: ${{ env.OCTOPUS_SERVER }}
+       service_account_id: 5e39c960-9e2c-44c5-bd84-a9651dc47cfc
 
       - name: Create ZIP package
         uses: OctopusDeploy/create-zip-package-action@v3
