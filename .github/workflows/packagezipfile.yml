@@ -11,7 +11,7 @@ permissions:
 
 env:
   OCTOPUS_SERVER: https://octopus-operations.octopus.app
-  OCTOPUS_SPACE: Clare
+  OCTOPUS_SPACE: Default
   PACKAGE_ID: TestPackage
   PACKAGE_VERSION: 1.0.${{ github.run_number }}
   
