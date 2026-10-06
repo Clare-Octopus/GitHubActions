@@ -1,9 +1,26 @@
+on:
+  push:
+    branches: 
+      - master
+      - test
+      - main
+env:  
+  OCTOPUS_SPACE_NAME: Clare
+  OCTOPUS_SPACE: 'Clare'
+  PACKAGE_VERSION: 1.0.0
+
+jobs:
+ build:
+   name: Push Package and Create Release
+   runs-on: ubuntu-latest
+
 steps:
   - uses: actions/checkout@v3
 
   # create a Zip package from files in the "reports" folder; create package in "packaging" folder
   - name: Create a Zip package 🐙
-    uses: OctopusDeploy/create-zip-package-action@v3
+    id: create_a_zip_package
+    uses: OctopusDeploy/create-zip-package-action@v4
     with:
       package_id: 'DemoPackage'
       version: '1.0.0'
@@ -19,11 +36,9 @@ steps:
     id: push_a_package_to_octopus_deploy
     uses: OctopusDeploy/push-package-action@v4
     env:
-      OCTOPUS_URL: ${{ secrets.SERVER }}
-      OCTOPUS_API_KEY: ${{ secrets.API_KEY }}
-      OCTOPUS_SPACE: 'Default'
+      OCTOPUS_URL: ${{ secrets.OCTOPUSCLOUDURL }}
+      OCTOPUS_API_KEY: ${{ secrets.OCTOPUSCLOUDAPI }}
+      OCTOPUS_SPACE: 'Clare'
     with:
       packages: |
-        package1.tar.gz
-        package2.zip
-        packages/**/*.zip
+        DemoPackage.1.0.0.zip
