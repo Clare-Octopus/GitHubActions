@@ -30,7 +30,7 @@ jobs:
         uses: OctopusDeploy/login@v2
         with:
           server: ${{ env.OCTOPUS_SERVER }}
-          service_account_id: 5e39c960-9e2c-44c5-bd84-a9651dc47cfc
+          audience:: 5e39c960-9e2c-44c5-bd84-a9651dc47cfc
 
       - name: Create ZIP package
         uses: OctopusDeploy/create-zip-package-action@v3
