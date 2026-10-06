@@ -25,28 +25,31 @@ jobs:
         uses: actions/checkout@v4
 
 
-      - name: Get Octopus OIDC token
+      - name: Get GitHub OIDC token
         id: oidc
         shell: bash
         env:
           AUDIENCE: 5e39c960-9e2c-44c5-bd84-a9651dc47cfc
         run: |
           TOKEN=$(curl -sSf \
-            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${AUDIENCE}" \
-            | jq -r '.value')
+              -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+              "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${AUDIENCE}" \
+               | jq -r '.value')
 
-          echo "::add-mask::$TOKEN"
+             echo "::add-mask::$TOKEN"
+             echo "token=$TOKEN" >> "$GITHUB_OUTPUT"
 
-          PAYLOAD=$(echo "$TOKEN" | cut -d '.' -f2 | base64 -d 2>/dev/null)
 
-          echo "OIDC token claims:"
-          echo "$PAYLOAD" | jq '{
-            iss,
-            sub,
-            aud,
-            repository,
-            repository_owner,
-            ref,
-            event_name
-          }'
+
+             - name: Install Octopus CLI
+               uses: OctopusDeploy/install-octopus-cli-action@v4
+
+              - name: Test Octopus OIDC
+                shell: bash
+                env:
+                  TOKEN: ${{ steps.oidc.outputs.token }}
+                run: |
+                  octopus login \
+                     --server "${OCTOPUS_SERVER}" \
+                     --service-account-id "5e39c960-9e2c-44c5-bd84-a9651dc47cfc" \
+                     --id-token "$TOKEN"
