@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Login to Octopus
-        uses: OctopusDeploy/login@v2
+        uses: OctopusDeploy/login@v1
         with:
           server: ${{ env.OCTOPUS_SERVER }}
           service_account_id: 5e39c960-9e2c-44c5-bd84-a9651dc47cfc
