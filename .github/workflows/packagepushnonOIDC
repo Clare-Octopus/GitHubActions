@@ -1,4 +1,4 @@
-name: Package and Push to Octopus
+name: Package and Push to Octopus - NonOIDC
 
 on:
   push:
