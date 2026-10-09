@@ -28,7 +28,7 @@ jobs:
         uses: OctopusDeploy/login@v1
         with:
           server: ${{ env.OCTOPUS_SERVER }}
-          api_key: ${{ secrets.OCTOPUCCLOUDAPI }}
+          api_key: ${{ secrets.OCTOPUSCLOUDAPI }}
 
       - name: Create ZIP package
         uses: OctopusDeploy/create-zip-package-action@v3
