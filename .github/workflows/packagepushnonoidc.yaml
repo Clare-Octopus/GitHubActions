@@ -12,8 +12,8 @@ permissions:
 env:
   OCTOPUS_SERVER: https://octopus-operations.octopus.app
   OCTOPUS_SPACE: Default
-  PACKAGE_ID: clm-feNonOIDC
-  PACKAGE_VERSION: 0.0.98
+  PACKAGE_ID: clarepackagetest
+  PACKAGE_VERSION: 0.0.1
   
 jobs:
   package:
@@ -25,7 +25,7 @@ jobs:
 
       - name: Login to Octopus
         id: login_to_octopus
-        uses: OctopusDeploy/login@v1
+        uses: OctopusDeploy/login@v2
         with:
           server: ${{ env.OCTOPUS_SERVER }}
           api_key: ${{ secrets.OCTOPUSCLOUDAPI }}
