@@ -13,7 +13,7 @@ env:
   OCTOPUS_SERVER: https://octopus-operations.octopus.app
   OCTOPUS_SPACE: Default
   PACKAGE_ID: clarepackagetest
-  PACKAGE_VERSION: 0.0.4
+  PACKAGE_VERSION: 0.0.5
   
 jobs:
   package:
